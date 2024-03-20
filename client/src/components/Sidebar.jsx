@@ -2,12 +2,13 @@
 import { FaHome, FaCog, FaPlus, FaEdit } from 'react-icons/fa'
 import { FaBuildingColumns } from 'react-icons/fa6'
 
-// eslint-disable-next-line react/prop-types
-const Sidebar = ({ sidebarToggle }) => {
+
+const Sidebar = () => {
+
     return (
-        <div className={`${sidebarToggle ? "hidden" : "block"}w-64 bg-gray-800 fixed h-full px-4 py-2`}>
-            <div className='my-2 mb-4'>
-                <h1 className="text-2xl text-white font-bold">Admin Dashboard</h1>
+        <div className={`w-64 bg-gray-800 fixed h-full px-4 py-2`}>
+            <div className='my-2 mb-3'>
+                <h1 className="text-xl text-white font-bold">Admin Dashboard</h1>
             </div>
             <hr />
             <ul className='mt-3 text-white font-bold'>

@@ -1,13 +1,11 @@
 // import React from 'react'
-
 import { FaBars, FaBell, FaSearch, FaUserCircle, } from "react-icons/fa"
 
-// eslint-disable-next-line react/prop-types
-const Navbar = ({ sidebarToggle, setSidebarToggle }) => {
+const Navbar = () => {
     return (
-        <nav className="bg-gray-800 px-4 py-3 flex justify-between">
+        <nav className="bg-gray-800 px-4 py-3 flex justify-between ml-64 z   ">
             <div className="flex items-center text-xl">
-                <FaBars className="text-white me-4 cursor-pointer" onClick={setSidebarToggle(!sidebarToggle)} />
+                <FaBars className="text-white me-4 cursor-pointer" />
                 <span className="text-white font-semibold">Venue Management</span>
             </div>
             <div className="flex items-center gap-x-5">
