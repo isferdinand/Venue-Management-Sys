@@ -1,19 +1,41 @@
 import './App.css'
-import Sidebar from './components/Sidebar'
-import Dashboard from './components/Dashboard'
-import { useState } from 'react'
-// import Sidebar from './components/Sidebar'
+import Home from './pages/Home/home'
+import NotFound from './pages/NotFound';
+import Reschedule from './pages/Reschedule/reschedule';
+import AddEvent from './pages/AddEvent/addevent';
+import Venues from './pages/Venues/venues';
+import Login from './pages/Login/login';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
-  const [sidebarToggle, setSidebarToggle] = useState(false)
 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />,
+      errorElement: <NotFound />
+    },
+    {
+      path: '/addevent',
+      element: <AddEvent />
+    },
+    {
+      path: '/reschedule',
+      element: <Reschedule />,
+      errorElement: <NotFound />
+    },
+    {
+      path: '/venues',
+      element: <Venues />
+    },
+    {
+      path: '/login',
+      element: <Login />
+    }
+  ]);
   return (
-    <div className='flex'>
-      <Sidebar sidebarToggle={sidebarToggle} />
-      <Dashboard
-        sidebarToggle={sidebarToggle}
-        setSidebarToggle={setSidebarToggle}
-      />
+    <div>
+      <RouterProvider router={router} />
     </div>
   )
 }
