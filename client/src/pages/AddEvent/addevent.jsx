@@ -1,7 +1,6 @@
 import Sidebar from '../../components/Sidebar'
 import Navbar from '../../components/Navbar'
 import PropTypes from 'prop-types'
-import './addevent'
 
 const AddEvent = () => {
     AddEvent.propTypes = {
@@ -15,7 +14,7 @@ const AddEvent = () => {
                 <Navbar />
             </div>
             <div className=" m-0 mx-auto mt-8 max-w-md md:mx-w-sm md:mx-auto">
-                <div className="p-4   bg-indigo-950 border-2 border-red-600 rounded-md">
+                <div className="p-4   bg-gray-800 border-2 border-red-600 rounded-md">
                     <form action="" className=''>
                         <h2 className="text-xl text-white text-center font-bold p-1 mb-2">New Event</h2>
                         <div className="mb-2">
@@ -52,7 +51,7 @@ const AddEvent = () => {
                                 id="venue"
                             />
                         </div>
-                        <button id="Add Event" type="submit" className="border-0 outline-none cursor-pointer rounded-md text-white font-semibold hover:bg-blue-500  bg-gray-700 py-1 px-4 w-3/4 my-8 transition ease-in-out duration-300 ">
+                        <button id="Add Event" type="submit" className="border-0 outline-none cursor-pointer rounded-md text-white font-semibold hover:bg-blue-500  bg-gray-700 py-1 px-4 w-3/4 ml-4 my-8 transition ease-in-out duration-300 ">
                             Add Event
                         </button>
                     </form>
