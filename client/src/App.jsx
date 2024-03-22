@@ -5,6 +5,7 @@ import Reschedule from './pages/Reschedule/reschedule';
 import AddEvent from './pages/AddEvent/addevent';
 import Venues from './pages/Venues/venues';
 import Login from './pages/Login/login';
+import Profile from './pages/ProfileSet/profile';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
@@ -14,6 +15,10 @@ function App() {
       path: "/",
       element: <Home />,
       errorElement: <NotFound />
+    },
+    {
+      path: "/home",
+      element: <Home />,
     },
     {
       path: '/addevent',
@@ -31,6 +36,10 @@ function App() {
     {
       path: '/login',
       element: <Login />
+    },
+    {
+      path: '/profile',
+      element: <Profile />
     }
   ]);
   return (
