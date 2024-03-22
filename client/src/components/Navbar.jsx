@@ -1,6 +1,7 @@
-import { FaBars, FaBell, FaUserCircle, } from "react-icons/fa"
-import { Link } from "react-router-dom"
+import { FaBars, FaBell, FaUserCircle } from "react-icons/fa"
+import { useNavigate } from "react-router-dom"
 import PropTypes from 'prop-types'
+// import Login from "../pages/Login/login"
 
 
 
@@ -8,6 +9,11 @@ const Navbar = ({ sidebarToggle, setSidebarToggle }) => {
     Navbar.propTypes = {
         setSidebarToggle: PropTypes.func.isRequired,
         sidebarToggle: PropTypes.bool.isRequired
+    }
+
+    const navigateTo = useNavigate()
+    const navigation = () => {
+        return navigateTo('/login')
     }
     return (
         <nav className={`${sidebarToggle ? "" : "ml-64"} bg-gray-800 px-4 py-3 flex justify-between w-full`}>
@@ -25,10 +31,8 @@ const Navbar = ({ sidebarToggle, setSidebarToggle }) => {
                         <FaUserCircle className="w-6 h-6 mt-1" />
                         <div className="z-10 hidden absolute bg-white rounded-lg shadow w-32 group-focus:block top-full right-0">
                             <ul className="py-2 text-sm text-gray-900">
-                                <li>
-                                    <Link to={'/login'} className="hover:bg-blue-500 hover:text-white font-semibold p-1 rounded-md ">
-                                        Logout
-                                    </Link>
+                                <li onClick={navigation}>
+                                    Logout
                                 </li>
                             </ul>
                         </div>
