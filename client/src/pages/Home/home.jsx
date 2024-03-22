@@ -31,7 +31,7 @@ const Home = () => {
 
                     <div className='flex gap-4 items-center justify-evenly rounded-md border-2 border-gray-400 p-2 w-4/5'>
                         <div>
-                            <img src={room1} alt="event" className=' max-w-24' />
+                            <img src={room1} alt="event" className=' w-80' />
                         </div>
                         <div className="flex flex-col">
                             <h2 className='text-lg font-bold'>Room 1</h2>
@@ -41,12 +41,12 @@ const Home = () => {
                             <h3>12th Feb 2023, 10:00</h3>
                         </div>
                         <div>
-                            <button className='outline:none p-1 bg-red-500 rounded-md text-white font-semibold'>Cancel Event</button>
+                            <button className='outline:none p-1 bg-red-500 hover:bg-red-400 rounded-md text-white font-semibold'>Cancel Event</button>
                         </div>
                     </div>
                     <div className='flex gap-4 items-center justify-evenly rounded-md border-2 border-gray-400  p-2 w-4/5'>
                         <div className=''>
-                            <img src={room2} alt="event" className='max-w-24' />
+                            <img src={room2} alt="event" className='w-80' />
                         </div>
                         <div className="flex flex-col">
                             <h2 className='text-lg font-bold'>Room 2</h2>
@@ -56,12 +56,12 @@ const Home = () => {
                             <h3>12th Feb 2023, 10:00</h3>
                         </div>
                         <div>
-                            <button className='outline:none p-1 bg-red-500 rounded-md text-white font-semibold'>Cancel Event</button>
+                            <button className='outline:none p-1 bg-red-500 hover:bg-red-300 rounded-md text-white font-semibold'>Cancel Event</button>
                         </div>
                     </div>
                     <div className='flex gap-4 items-center justify-evenly rounded-md border-2 border-gray-400  p-2 w-4/5'>
                         <div>
-                            <img src={Hall2} alt="event" className=' max-w-24' />
+                            <img src={Hall2} alt="event" className=' w-80' />
                         </div>
                         <div className="flex flex-col">
                             <h2 className='text-lg font-bold'>Hall B</h2>
@@ -71,12 +71,12 @@ const Home = () => {
                             <h3>12th Feb 2023, 10:00</h3>
                         </div>
                         <div>
-                            <button className='outline:none p-1 bg-red-500 rounded-md text-white font-semibold'>Cancel Event</button>
+                            <button className='outline:none p-1 bg-red-500 hover:bg-red-300 rounded-md text-white font-semibold'>Cancel Event</button>
                         </div>
                     </div>
                     <div className='flex gap-4 items-center justify-evenly rounded-md border-2 border-gray-400  p-2 w-4/5'>
                         <div>
-                            <img src={Hall1} alt="event" className=' max-w-24' />
+                            <img src={Hall1} alt="event" className='w-80' />
                         </div>
                         <div className="flex flex-col">
                             <h2 className='text-lg font-bold'>Hall A</h2>
@@ -86,7 +86,7 @@ const Home = () => {
                             <p>12th Feb 2023, 10:00</p>
                         </div>
                         <div>
-                            <button className='outline:none p-1 bg-red-500 rounded-md text-white font-semibold'>Cancel Event</button>
+                            <button className='outline:none p-1 bg-red-500 hover:bg-red-300 rounded-md text-white font-semibold'>Cancel Event</button>
                         </div>
                     </div>
 

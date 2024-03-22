@@ -17,25 +17,25 @@ const Reschedule = () => {
             <div className='ml-64 flex flex-col items-center gap-3 mt-16'>
                 <div className='flex gap-4 items-center justify-evenly rounded-md border-2 border-gray-400 p-2 w-4/5'>
                     <div>
-                        <img src={room1} alt="event" className=' max-w-24' />
+                        <img src={room1} alt="event" className='w-80' />
                     </div>
                     <div className="flex flex-col">
                         <h2 className='text-lg font-bold'>Room 1</h2>
                         <h3>Lecture</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste veritatis officia!</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste veritatis !</p>
                         <p>Estimated Attendees: 50</p>
                         <h3>12th Feb 2023, 10:00</h3>
                     </div>
                     <div>
                         <div className='flex flex-col gap-4'>
-                            <button className='outline:none p-1 bg-red-500 rounded-md text-white font-semibold'>Reschedule</button>
-                            <button className='outline:none p-1 bg-red-500 rounded-md text-white font-semibold'> Remove Event</button>
+                            <button className='outline:none p-1 bg-red-500 hover:bg-red-300 rounded-md text-white font-semibold'>Reschedule</button>
+                            <button className='outline:none p-1 bg-red-500 hover:bg-red-300 rounded-md text-white font-semibold'> Remove Event</button>
                         </div>
                     </div>
                 </div>
                 <div className='flex gap-4 items-center justify-evenly rounded-md border-2 border-gray-400  p-2 w-4/5'>
                     <div className=''>
-                        <img src={room2} alt="event" className='max-w-24' />
+                        <img src={room2} alt="event" className='w-80' />
                     </div>
                     <div className="flex flex-col">
                         <h2 className='text-lg font-bold'>Room 2</h2>
@@ -46,14 +46,14 @@ const Reschedule = () => {
                     </div>
                     <div>
                         <div className='flex flex-col gap-4'>
-                            <button className='outline:none p-1 bg-red-500 rounded-md text-white font-semibold'>Reschedule</button>
-                            <button className='outline:none p-1 bg-red-500 rounded-md text-white font-semibold'> Remove Event</button>
+                            <button className='outline:none p-1 bg-red-500 hover:bg-red-300 rounded-md text-white font-semibold'>Reschedule</button>
+                            <button className='outline:none p-1 bg-red-500 hover:bg-red-300 rounded-md text-white font-semibold'> Remove Event</button>
                         </div>
                     </div>
                 </div>
                 <div className='flex gap-4 items-center justify-evenly rounded-md border-2 border-gray-400  p-2 w-4/5'>
                     <div>
-                        <img src={Hall2} alt="event" className=' max-w-24' />
+                        <img src={Hall2} alt="event" className=' w-80' />
                     </div>
                     <div className="flex flex-col">
                         <h2 className='text-lg font-bold'>Hall B</h2>
@@ -64,14 +64,14 @@ const Reschedule = () => {
                     </div>
                     <div>
                         <div className='flex flex-col gap-4'>
-                            <button className='outline:none p-1 bg-red-500 rounded-md text-white font-semibold'>Reschedule</button>
-                            <button className='outline:none p-1 bg-red-500 rounded-md text-white font-semibold'> Remove Event</button>
+                            <button className='outline:none p-1 bg-red-500 hover:bg-red-300 rounded-md text-white font-semibold'>Reschedule</button>
+                            <button className='outline:none p-1 bg-red-500 hover:bg-red-300 rounded-md text-white font-semibold'> Remove Event</button>
                         </div>
                     </div>
                 </div>
                 <div className='flex gap-4 items-center justify-evenly rounded-md border-2 border-gray-400  p-2 w-4/5'>
                     <div>
-                        <img src={Hall1} alt="event" className=' max-w-24' />
+                        <img src={Hall1} alt="event" className='w-80' />
                     </div>
                     <div className="flex flex-col">
                         <h2 className='text-lg font-bold'>Hall A</h2>
@@ -82,8 +82,8 @@ const Reschedule = () => {
                     </div>
                     <div>
                         <div className='flex flex-col gap-4'>
-                            <button className='outline:none p-1 bg-red-500 rounded-md text-white font-semibold'>Reschedule</button>
-                            <button className='outline:none p-1 bg-red-500 rounded-md text-white font-semibold'> Remove Event</button>
+                            <button className='outline:none p-1 bg-red-500 hover:bg-red-300 rounded-md text-white font-semibold'>Reschedule</button>
+                            <button className='outline:none p-1 bg-red-500 hover:bg-red-300 rounded-md text-white font-semibold'> Remove Event</button>
                         </div>
                     </div>
                 </div>
