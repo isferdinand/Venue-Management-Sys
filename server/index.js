@@ -38,3 +38,38 @@ app.post('/login', (req, res) => {
     }
   });
 });
+
+app.post('/addevent', (req, res) => {
+  const sentEventName = req.body.eventName;
+  const sentAttendees = req.body.attendees;
+  const sentTime = req.body.time;
+  const sentVenue = req.body.venue;
+
+  const SQL =
+    'INSERT INTO events (eventID, eventType, attendees, time, venueName, venueID) VALUES (?,?,?,?,?,?)';
+
+  function increment(num) {
+    return num + 1;
+  }
+
+  const Values = [
+    increment(1),
+    sentEventName,
+    sentAttendees,
+    sentTime,
+    sentVenue,
+    null,
+  ];
+
+  db.query(SQL, Values, (err, result) => {
+    if (err) {
+      res.send({ err });
+    }
+    if (result.length > 0) {
+      res.send(result);
+      console.log(result);
+    } else {
+      res.send({ message: 'Error!' });
+    }
+  });
+});
