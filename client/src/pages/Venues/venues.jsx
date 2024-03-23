@@ -1,5 +1,7 @@
 import Sidebar from '../../components/Sidebar'
 import Navbar from '../../components/Navbar'
+import { useState } from 'react'
+import PropTypes from 'prop-types'
 
 import room1 from '../../assets/Room1.jpg'
 import room2 from '../../assets/Room2.jpg'
@@ -9,11 +11,17 @@ import Hall2 from '../../assets/Hall2.jpg'
 import Hall3 from '../../assets/Hall3.jpg'
 
 const Venues = () => {
+    const [sidebarToggle, setSidebarToggle] = useState(false)
+    Venues.propTypes = {
+        setSidebarToggle: PropTypes.func.isRequired,
+        sidebarToggle: PropTypes.bool.isRequired
+    }
     return (
         <div>
             <div className="flex">
-                <Sidebar />
-                <Navbar />
+                <Sidebar sidebarToggle={sidebarToggle} />
+                <Navbar sidebarToggle={sidebarToggle}
+                    setSidebarToggle={setSidebarToggle} />
             </div>
             <div className="ml-64 flex flex-col items-center mt-10">
                 <h1 className="text-3xl font-bold mb-2">Venues</h1>
