@@ -5,7 +5,7 @@ import Axios from 'axios';
 
 const Login = () => {
     // use state hook to store inputs
-    const [loginRegno, setLoginRegno] = useState('')
+    const [loginUserName, setLoginUserName] = useState('')
     const [loginPassword, setLoginPassword] = useState('')
     const navigateTo = useNavigate()
 
@@ -19,11 +19,11 @@ const Login = () => {
         // Using Axios to create an API that connects to the server
         Axios.post('http://localhost:3002/login', {
             // Variable to send to server through the route  
-            LoginRegNo: loginRegno,
+            LoginUserName: loginUserName,
             LoginPassword: loginPassword
         }).then((response) => {
-            if (response.data.message || loginRegno == '' || loginPassword == '') {
-                navigateTo('/') //This navigates to the same page if credentials don't match
+            if (response.data.message || loginUserName == '' || loginPassword == '') {
+                navigateTo('/login') //This navigates to the same page if credentials don't match
                 setLoginStatus('Invalid username or password')
             } else {
                 navigateTo('/home')
@@ -33,7 +33,7 @@ const Login = () => {
 
     // Clear form after submission
     const clearOnSubmit = () => {
-        setLoginRegno('')
+        setLoginUserName('')
         setLoginPassword('')
     }
 
@@ -54,11 +54,11 @@ const Login = () => {
                     <span className={statusHolder}>{loginStatus}</span>
                     <div className="mb-2 p-1">
                         <label htmlFor="username" className='block w-full text-xl text-white font-semibold mb-2'>Username:</label>
-                        <input type="text" name="" id="username" className='p-1 outline-none rounded-md' />
+                        <input type="text" name="" id="username" className='p-1 outline-none rounded-md' value={loginUserName} onChange={(e) => setLoginUserName(e.target.value)} />
                     </div>
                     <div className="mb-2 p-1">
                         <label htmlFor="password" className='block w-full text-xl text-white font-semibold mb-2'>Password: </label>
-                        <input type="password" name="" id="password" className='p-1 outline-none rounded-md' />
+                        <input type="password" name="" id="password" className='p-1 outline-none rounded-md' value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} />
                     </div>
                     <button id="signin" type="submit" className=" block mt-2 mx-auto outline-none bg-gray-600 text-white rounded-md py-1 px-3 hover:bg-blue-500 transition ease-in-out duration-300" onClick={loginUser} >Login</button>
                 </form>
