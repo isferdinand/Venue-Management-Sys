@@ -46,26 +46,15 @@ app.post('/addevent', (req, res) => {
   const sentVenue = req.body.venue;
 
   const SQL =
-    'INSERT INTO events (eventID, eventType, attendees, time, venueName, venueID) VALUES (?,?,?,?,?,?)';
+    'INSERT INTO events (eventType, attendees, time, venueName, venueID) VALUES (?,?,?,?,?)';
 
-  function increment(num) {
-    return num + 1;
-  }
-
-  const Values = [
-    increment(1),
-    sentEventName,
-    sentAttendees,
-    sentTime,
-    sentVenue,
-    null,
-  ];
+  const Values = [sentEventName, sentAttendees, sentTime, sentVenue, null];
 
   db.query(SQL, Values, (err, result) => {
     if (err) {
-      res.send({ err });
+      return res.send({ err });
     }
-    if (result.length > 0) {
+    if (result && result.length > 0) {
       res.send(result);
       console.log(result);
     } else {
