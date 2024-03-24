@@ -31,7 +31,7 @@ const Navbar = ({ sidebarToggle, setSidebarToggle }) => {
                         <FaUserCircle className="w-6 h-6 mt-1" />
                         <div className="z-10 hidden absolute bg-white rounded-lg shadow w-32 group-focus:block top-full right-0">
                             <ul className="py-2 text-sm text-gray-900">
-                                <li onClick={navigation}>
+                                <li className=" font-medium hover:text-red-600 hover:font-semibold" onClick={navigation}>
                                     Logout
                                 </li>
                             </ul>
