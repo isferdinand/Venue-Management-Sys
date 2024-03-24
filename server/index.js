@@ -45,20 +45,42 @@ app.post('/addevent', (req, res) => {
   const sentTime = req.body.time;
   const sentVenue = req.body.venue;
 
-  const SQL =
-    'INSERT INTO events (eventType, attendees, time, venueName, venueID) VALUES (?,?,?,?,?)';
-
-  const Values = [sentEventName, sentAttendees, sentTime, sentVenue, null];
-
-  db.query(SQL, Values, (err, result) => {
+  //get the venuesID from the venues table
+  const getVenueIdSQL = 'SELECT venueID FROM venues WHERE venueName = ?';
+  db.query(getVenueIdSQL, sentVenue, (err, result) => {
     if (err) {
       return res.send({ err });
     }
+
+    // If a venue with the given name exists
     if (result && result.length > 0) {
-      res.send(result);
-      console.log(result);
+      const venueID = result[0].venueID;
+
+      //Then, insert the new event into the events table
+      const SQL =
+        'INSERT INTO events (eventType, attendees, time, venueName, venueID) VALUES (?,?,?,?,?)';
+
+      const Values = [
+        sentEventName,
+        sentAttendees,
+        sentTime,
+        sentVenue,
+        venueID,
+      ];
+
+      db.query(SQL, Values, (err, result) => {
+        if (err) {
+          return res.send({ err });
+        }
+        if (result && result.length > 0) {
+          res.send(result);
+          console.log(result);
+        } else {
+          res.send({ message: 'Error!' });
+        }
+      });
     } else {
-      res.send({ message: 'Error!' });
+      res.send({ message: 'Venue not found!' });
     }
   });
 });
