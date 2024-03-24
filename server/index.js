@@ -5,10 +5,11 @@ const cors = require('cors');
 const app = express();
 app.use(express.json());
 app.use(cors());
+const port = 3002;
 
 // Starts the server and listens for incoming requests on port 3002.
-app.listen(3002, () => {
-  console.log('Server is running at port 3002');
+app.listen(port, () => {
+  console.log(`Server is running at port ${port}`);
 });
 
 // Creating a db connection
@@ -39,6 +40,7 @@ app.post('/login', (req, res) => {
   });
 });
 
+// Add a new event
 app.post('/addevent', (req, res) => {
   const sentEventName = req.body.eventName;
   const sentAttendees = req.body.attendees;
@@ -82,5 +84,35 @@ app.post('/addevent', (req, res) => {
     } else {
       res.send({ message: 'Venue not found!' });
     }
+  });
+
+  //Change password
+  app.post('/profile', (req, res) => {
+    const sentUserName = req.body.UserName;
+    const sentOldPassword = req.body.OldPassword;
+    const sentNewPassword = req.body.NewPassword;
+
+    const SQL = 'SELECT * FROM users WHERE userName = ? && password = ?';
+
+    const Values = [sentUserName, sentOldPassword];
+
+    db.query(SQL, Values, (err, result) => {
+      if (err) {
+        res.send({ err });
+      }
+      if (result.length > 0) {
+        const updateSQL = 'UPDATE users SET password = ? WHERE userName = ?';
+        const updateValues = [sentNewPassword, sentUserName];
+
+        db.query(updateSQL, updateValues, (err, result) => {
+          if (err) {
+            res.send({ err });
+          }
+          res.send({ message: 'Password changed successfully!' });
+        });
+      } else {
+        res.send({ message: 'Invalid username or old password!' });
+      }
+    });
   });
 });
