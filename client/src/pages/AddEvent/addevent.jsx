@@ -60,13 +60,16 @@ const AddEvent = () => {
                         <h2 className="text-xl text-white text-center font-bold p-1 mb-2">New Event</h2>
                         <div className="mb-2">
                             <label htmlFor="event" className='block w-full text-xl text-white font-semibold'>Event: </label>
-                            <input className='p-0.5 rounded-sm bg-gray-100 focus:outline-none w-5/6'
-                                type="text"
-                                name=""
-                                id="event"
-                                value={eventName}
-                                onChange={(e) => setEventName(e.target.value)}
-                            />
+                            <select name="event" className='p-0.5 rounded-sm bg-gray-100 focus:outline-none w-5/6' value={eventName}
+                                onChange={(e) => setEventName(e.target.value)}>
+                                <option value=""></option>
+                                <option value="Lecture">Lecture</option>
+                                <option value="Seminar">Seminar</option>
+                                <option value="Workshop">Workshop</option>
+                                <option value="Conference">Conference</option>
+                                <option value="Career Fair">Career Fair</option>
+                                <option value="Entertainment">Entertainment</option>
+                            </select>
                         </div>
                         <div className="mb-2">
                             <label htmlFor="attendees" className='block w-full text-xl text-white font-semibold'>No of attendees:</label>
