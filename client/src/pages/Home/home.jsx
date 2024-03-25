@@ -29,14 +29,14 @@ const Home = () => {
                 </div>
                 <div className='flex flex-col items-center gap-3'>
 
-                    <div className='flex gap-4 items-center justify-evenly rounded-md border-2 border-gray-400 p-2 w-4/5'>
+                    <div className='flex gap-2 items-center justify-evenly rounded-md border-2 border-gray-400 p-2 w-4/5'>
                         <div>
                             <img src={room1} alt="event" className=' w-80' />
                         </div>
                         <div className="flex flex-col">
                             <h2 className='text-lg font-bold'>Room 1</h2>
-                            <h3>Lecture</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste veritatis officia a </p>
+                            <h3>Event: <span>Lecture</span></h3>
+                            <p><span>Confirmed</span></p>
                             <p>Estimated Attendees: 50</p>
                             <h3>12th Feb 2023, 10:00</h3>
                         </div>
@@ -44,46 +44,46 @@ const Home = () => {
                             <button className='outline:none p-1 bg-red-500 hover:bg-red-400 rounded-md text-white font-semibold'>Cancel Event</button>
                         </div>
                     </div>
-                    <div className='flex gap-4 items-center justify-evenly rounded-md border-2 border-gray-400  p-2 w-4/5'>
+                    <div className='flex gap-2 items-center justify-evenly rounded-md border-2 border-gray-400  p-2 w-4/5'>
                         <div className=''>
                             <img src={room2} alt="event" className='w-80' />
                         </div>
                         <div className="flex flex-col">
                             <h2 className='text-lg font-bold'>Room 2</h2>
-                            <h3>Workshop</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores voluptatem </p>
-                            <p>Estimated Attendees: 200</p>
-                            <h3>12th Feb 2023, 10:00</h3>
+                            <h3>Event: <span>Lecture</span></h3>
+                            <p>Status:<span>Confirmed</span></p>
+                            <p>Estimated Attendees: <span>200</span> 200</p>
+                            <h3>Time Booked:<span>12th Feb 2023, 11:00</span></h3>
                         </div>
                         <div>
                             <button className='outline:none p-1 bg-red-500 hover:bg-red-300 rounded-md text-white font-semibold'>Cancel Event</button>
                         </div>
                     </div>
-                    <div className='flex gap-4 items-center justify-evenly rounded-md border-2 border-gray-400  p-2 w-4/5'>
+                    <div className='flex gap-2 items-center justify-evenly rounded-md border-2 border-gray-400  p-2 w-4/5'>
                         <div>
                             <img src={Hall2} alt="event" className=' w-80' />
                         </div>
                         <div className="flex flex-col">
                             <h2 className='text-lg font-bold'>Hall B</h2>
-                            <h3>Performance</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, possimus ?</p>
+                            <h3>Event: <span>Lecture</span></h3>
+                            <p>Status:<span>Confirmed</span></p>
                             <p>Estimated Attendees: 1000</p>
-                            <h3>12th Feb 2023, 10:00</h3>
+                            <h3>Time Booked: <span>12th Feb 2023, 11:00</span></h3>
                         </div>
                         <div>
                             <button className='outline:none p-1 bg-red-500 hover:bg-red-300 rounded-md text-white font-semibold'>Cancel Event</button>
                         </div>
                     </div>
-                    <div className='flex gap-4 items-center justify-evenly rounded-md border-2 border-gray-400  p-2 w-4/5'>
+                    <div className='flex gap-2 items-center justify-evenly rounded-md border-2 border-gray-400  p-2 w-4/5'>
                         <div>
                             <img src={Hall1} alt="event" className='w-80' />
                         </div>
                         <div className="flex flex-col">
                             <h2 className='text-lg font-bold'>Hall A</h2>
-                            <h3>Conference</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, dolor!</p>
+                            <h3>Event: <span>Lecture</span></h3>
+                            <p>Status: <span>Cancelled</span></p>
                             <p>Estimated Attendees: 400</p>
-                            <p>12th Feb 2023, 10:00</p>
+                            <p>Time Booked: <span>12th Feb 2023, 11:00</span></p>
                         </div>
                         <div>
                             <button className='outline:none p-1 bg-red-500 hover:bg-red-300 rounded-md text-white font-semibold'>Cancel Event</button>
