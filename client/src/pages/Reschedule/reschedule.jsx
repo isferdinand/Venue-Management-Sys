@@ -29,11 +29,11 @@ const Reschedule = () => {
                         <img src={room1} alt="event" className='w-80' />
                     </div>
                     <div className="flex flex-col">
-                        <h2 className='text-lg font-bold'>Room 1</h2>
-                        <h3>Lecture</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste veritatis !</p>
-                        <p>Estimated Attendees: 50</p>
-                        <h3>12th Feb 2023, 10:00</h3>
+                        <h2 className='text-lg font-bold'>Room 2</h2>
+                        <h3>Event: <span className='font-semibold'>Lecture</span></h3>
+                        <p>Status:<span className='font-semibold'>Confirmed</span></p>
+                        <p>Estimated Attendees: <span className='font-semibold'>200</span></p>
+                        <h3>Time Booked:<span className='font-semibold'>12th Feb 2023, 11:00</span></h3>
                     </div>
                     <div>
                         <div className='flex flex-col gap-4'>
@@ -48,10 +48,10 @@ const Reschedule = () => {
                     </div>
                     <div className="flex flex-col">
                         <h2 className='text-lg font-bold'>Room 2</h2>
-                        <h3>Workshop</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores voluptatem </p>
-                        <p>Estimated Attendees: 200</p>
-                        <h3>12th Feb 2023, 10:00</h3>
+                        <h3>Event: <span className='font-semibold'>Lecture</span></h3>
+                        <p>Status:<span className='font-semibold'>Confirmed</span></p>
+                        <p>Estimated Attendees: <span className='font-semibold'>200</span></p>
+                        <h3>Time Booked:<span className='font-semibold'>12th Feb 2023, 11:00</span></h3>
                     </div>
                     <div>
                         <div className='flex flex-col gap-4'>
@@ -65,11 +65,11 @@ const Reschedule = () => {
                         <img src={Hall2} alt="event" className=' w-80' />
                     </div>
                     <div className="flex flex-col">
-                        <h2 className='text-lg font-bold'>Hall B</h2>
-                        <h3>Performance</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, possimus</p>
-                        <p>Estimated Attendees: 1000</p>
-                        <h3>12th Feb 2023, 10:00</h3>
+                        <h2 className='text-lg font-bold'>Room 2</h2>
+                        <h3>Event: <span className='font-semibold'>Lecture</span></h3>
+                        <p>Status:<span className='font-semibold'>Confirmed</span></p>
+                        <p>Estimated Attendees: <span className='font-semibold'>200</span></p>
+                        <h3>Time Booked:<span className='font-semibold'>12th Feb 2023, 11:00</span></h3>
                     </div>
                     <div>
                         <div className='flex flex-col gap-4'>
@@ -83,11 +83,11 @@ const Reschedule = () => {
                         <img src={Hall1} alt="event" className='w-80' />
                     </div>
                     <div className="flex flex-col">
-                        <h2 className='text-lg font-bold'>Hall A</h2>
-                        <h3>Conference</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, dolor!</p>
-                        <p>Estimated Attendees: 400</p>
-                        <p>12th Feb 2023, 10:00</p>
+                        <h2 className='text-lg font-bold'>Room 2</h2>
+                        <h3>Event: <span className='font-semibold'>Conference</span></h3>
+                        <p>Status:<span className='font-semibold'>Confirmed</span></p>
+                        <p>Estimated Attendees: <span className='font-semibold'>200</span></p>
+                        <h3>Time Booked:<span className='font-semibold'>12th Feb 2023, 11:00</span></h3>
                     </div>
                     <div>
                         <div className='flex flex-col gap-4'>
