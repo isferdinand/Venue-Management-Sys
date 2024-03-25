@@ -1,4 +1,4 @@
-import { FaBars, FaBell, FaUserCircle } from "react-icons/fa"
+import { FaBars, FaUserCircle } from "react-icons/fa"
 import { useNavigate } from "react-router-dom"
 import PropTypes from 'prop-types'
 // import Login from "../pages/Login/login"
@@ -23,9 +23,9 @@ const Navbar = ({ sidebarToggle, setSidebarToggle }) => {
             </div>
             <div className="flex items-center gap-x-5">
 
-                <div className="text-white">
+                {/* <div className="text-white">
                     <FaBell className="w-6 h-6" />
-                </div>
+                </div> */}
                 <div className="relative">
                     <button className="text-white group">
                         <FaUserCircle className="w-6 h-6 mt-1" />
