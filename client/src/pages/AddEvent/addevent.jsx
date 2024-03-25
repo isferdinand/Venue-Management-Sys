@@ -10,14 +10,16 @@ const AddEvent = () => {
         sidebarToggle: PropTypes.bool.isRequired
     }
     const [sidebarToggle, setSidebarToggle] = useState(false)
-    const [attendees, setAttendees] = useState('')
+    const [attendees, setAttendees] = useState(0)
     const [eventName, setEventName] = useState('')
     const [time, setTime] = useState('')
 
     const assignVenue = (attendees) => {
         let venue = '';
 
-        if (attendees >= 0 && attendees <= 50) {
+        if (attendees === 0) {
+            venue = '';
+        } else if (attendees >= 1 && attendees <= 50) {
             venue = 'Room 1';
         } else if (attendees >= 51 && attendees <= 200) {
             venue = 'Room 2';
@@ -27,7 +29,7 @@ const AddEvent = () => {
             venue = 'Hall 1';
         } else if (attendees >= 1501 && attendees <= 3000) {
             venue = 'Hall 2';
-        } else {
+        } else if (attendees > 3000) {
             venue = 'Hall 3';
         }
         return venue;
@@ -42,7 +44,14 @@ const AddEvent = () => {
             time: time,
             venue: assignVenue(attendees)
         }).then((response) => {
-            console.log(response)
+            if (response.data.message === 'Venue not found!') {
+                alert('Event not added!')
+
+            } else {
+                alert('Event added succesfully')
+                console.log(response);
+            }
+
         })
 
     }
@@ -103,8 +112,7 @@ const AddEvent = () => {
                             />
                         </div>
                         <button id="Add Event" type="submit" className="border-0 outline-none cursor-pointer rounded-md text-white font-semibold hover:bg-blue-500  bg-gray-700 py-1 px-4 w-3/4 ml-4 my-8 transition ease-in-out duration-300 "
-                            onClick={addNewEvent}
-                        >
+                            onClick={addNewEvent}>
                             Add Event
                         </button>
                     </form>
