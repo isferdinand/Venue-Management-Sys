@@ -35,6 +35,12 @@ const AddEvent = () => {
         return venue;
     }
 
+    const clearFormInputs = () => {
+        setEventName('');
+        setAttendees(0);
+        setTime('');
+    };
+
     const addNewEvent = (e) => {
         e.preventDefault()
 
@@ -49,13 +55,13 @@ const AddEvent = () => {
 
             } else {
                 alert('Event added succesfully')
+                clearFormInputs()
                 console.log(response);
             }
 
         })
 
     }
-
     return (
         <div className=''>
             <div className="flex">
