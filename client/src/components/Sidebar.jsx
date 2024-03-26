@@ -9,7 +9,7 @@ const Sidebar = ({ sidebarToggle }) => {
         sidebarToggle: PropTypes.bool.isRequired
     }
     return (
-        <div className={`${sidebarToggle ? "hidden" : "block"} w-64 bg-gray-800 fixed h-full px-4 py-2`}>
+        <div className={`${sidebarToggle ? "hidden transition-hidden duration-700 ease-in" : "block transition-all duration-700 ease-in"} w-64 bg-gray-800 fixed h-full px-4 py-2 `}>
             <div className='my-2 mb-3'>
                 <h1 className="text-xl text-white font-bold">Admin Dashboard</h1>
             </div>

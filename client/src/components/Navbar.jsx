@@ -16,7 +16,7 @@ const Navbar = ({ sidebarToggle, setSidebarToggle }) => {
         return navigateTo('/login')
     }
     return (
-        <nav className={`${sidebarToggle ? "" : "ml-64"} bg-gray-800 px-4 py-3 flex justify-between w-full`}>
+        <nav className={`${sidebarToggle ? "" : "ml-64"} bg-gray-800 px-4 py-3 flex justify-between w-full transition-all duration-700 ease-in`}>
             <div className="flex items-center text-xl">
                 <FaBars className="text-white me-4 cursor-pointer" onClick={() => setSidebarToggle(!sidebarToggle)} />
                 <span className="text-white font-semibold">Venue Management</span>
