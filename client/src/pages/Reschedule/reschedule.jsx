@@ -2,6 +2,7 @@ import Sidebar from '../../components/Sidebar'
 import Navbar from '../../components/Navbar'
 import PropTypes from 'prop-types'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import room1 from '../../assets/Room1.jpg'
 import room2 from '../../assets/Room2.jpg'
@@ -31,13 +32,15 @@ const Reschedule = () => {
                     <div className="flex flex-col">
                         <h2 className='text-lg font-bold'>Room 2</h2>
                         <h3>Event: <span className='font-semibold'>Lecture</span></h3>
-                        <p>Status:<span className='font-semibold'>Confirmed</span></p>
+                        <p>Status:<span className='font-semibold'>Pending</span></p>
                         <p>Estimated Attendees: <span className='font-semibold'>200</span></p>
                         <h3>Time Booked:<span className='font-semibold'>12th Feb 2023, 11:00</span></h3>
                     </div>
                     <div>
                         <div className='flex flex-col gap-4'>
-                            <button className='outline:none p-1 bg-red-500 hover:bg-red-300 rounded-md text-white font-semibold'>Reschedule</button>
+                            <Link to={'/addevent'}>
+                                <button className='outline:none p-1 bg-red-500 hover:bg-red-300 rounded-md text-white font-semibold'>Reschedule</button>
+                            </Link>
                             <button className='outline:none p-1 bg-red-500 hover:bg-red-300 rounded-md text-white font-semibold'> Remove Event</button>
                         </div>
                     </div>
@@ -55,6 +58,7 @@ const Reschedule = () => {
                     </div>
                     <div>
                         <div className='flex flex-col gap-4'>
+
                             <button className='outline:none p-1 bg-red-500 hover:bg-red-300 rounded-md text-white font-semibold'>Reschedule</button>
                             <button className='outline:none p-1 bg-red-500 hover:bg-red-300 rounded-md text-white font-semibold'> Remove Event</button>
                         </div>
