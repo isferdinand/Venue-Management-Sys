@@ -2,29 +2,56 @@ import Sidebar from '../../components/Sidebar'
 import Navbar from '../../components/Navbar'
 import { useState, useEffect } from 'react'
 import { FaSearch } from "react-icons/fa"
-import room1 from '../../assets/Room1.jpg'
 import axios from 'axios'
-// import room2 from '../../assets/Room2.jpg'
-// import Hall1 from '../../assets/Hall1.jpg'
-// import Hall2 from '../../assets/Hall2.jpg'
+
+import room1 from '../../assets/Room1.jpg'
+import room2 from '../../assets/Room2.jpg'
+import room3 from '../../assets/Room3.jpg'
+import Hall1 from '../../assets/Hall1.jpg'
+import Hall2 from '../../assets/Hall2.jpg'
 
 
 
 const Home = () => {
     const [sidebarToggle, setSidebarToggle] = useState(false)
-
     const [events, setEvents] = useState([]);
+    // const [searchTerm, setSearchTerm] = useState('')
+
+    const venueImages = {
+        'Room 1': room1,
+        'Room 2': room2,
+        'Room 3': room3,
+        'Hall 1': Hall1,
+        'Hall 2': Hall2,
+        'Hall 3': Hall2
+    };
 
     useEffect(() => {
         axios.get('http://localhost:3002/home') // replace with your API endpoint
             .then(response => {
-                console.log(response.data);
                 setEvents(response.data);
+                // console.log(response.data);
             })
             .catch(error => {
                 console.error('There was an error!', error);
             });
     }, []);
+
+    const deleteEvent = (id) => {
+        axios.delete(`http://localhost:3002/home/${id}`) // replace with your API endpoint
+            .then(response => {
+                console.log(response.data);
+                // Remove the deleted event from the local state
+                setEvents(events.filter(event => event.eventID !== id));
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+            });
+    };
+
+    // const searchEvents = (e) => {
+    //     setSearchTerm(e.target.value)
+    // }
 
     return (
         <div>
@@ -46,17 +73,17 @@ const Home = () => {
                     {Array.isArray(events) && events.map((event) => (
                         <div className='flex gap-2 items-center justify-evenly rounded-md border-2 border-gray-400 p-2 w-4/5' key={event.eventID}>
                             <div>
-                                <img src={room1} alt="event" className=' w-80' />
+                                <img src={venueImages[event.venueName]} alt="venue image" className=' w-80' />
                             </div>
                             <div className="flex flex-col">
-                                <h2 className='text-lg font-bold'><span>{event.venueName}</span></h2>
-                                <h3>Event: <span>{event.eventType}</span></h3>
-                                <p>Status:<span>{event.status}</span></p>
-                                <p>Estimated Attendees: <span>{event.attendees}</span></p>
-                                <h3>Time Booked: <span>{(new Date(event.time)).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</span></h3>
+                                <h2 className='text-lg font-bold'><span className='font-semibold'>{event.venueName}</span></h2>
+                                <h3>Event: <span className='font-semibold'>{event.eventType}</span></h3>
+                                <p>Status:<span className='font-semibold'>{event.status}</span></p>
+                                <p>Estimated Attendees: <span className='font-semibold'>{event.attendees}</span></p>
+                                <h3>Time Booked: <span className='font-semibold'>{(new Date(event.time)).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</span></h3>
                             </div>
                             <div>
-                                <button className='outline:none p-1 bg-red-500 hover:bg-red-400 rounded-md text-white font-semibold'>Cancel Event</button>
+                                <button className='outline:none p-1 bg-red-500 hover:bg-red-400 rounded-md text-white font-semibold' onClick={() => deleteEvent(event.eventID)}>Cancel Event</button>
                             </div>
                         </div>
                     ))}
