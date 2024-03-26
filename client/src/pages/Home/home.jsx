@@ -15,7 +15,7 @@ import Hall2 from '../../assets/Hall2.jpg'
 const Home = () => {
     const [sidebarToggle, setSidebarToggle] = useState(false)
     const [events, setEvents] = useState([]);
-    // const [searchTerm, setSearchTerm] = useState('')
+    const [searchTerm, setSearchTerm] = useState('')
 
     const venueImages = {
         'Room 1': room1,
@@ -53,6 +53,10 @@ const Home = () => {
     //     setSearchTerm(e.target.value)
     // }
 
+    const handleSearchChange = (e) => {
+        setSearchTerm(e.target.value)
+    }
+
     return (
         <div>
             <div className="flex">
@@ -67,10 +71,10 @@ const Home = () => {
                     <span className="flex items-center pl-2">
                         <button className="pr-1 text-lg focus:outline-none text-white md:text-black"><FaSearch /></button>
                     </span>
-                    <input type="text" name="search" id="search" placeholder='Search event...' className="w-3/4 px-4 py-1 pl-12 border-b-2 border-b-gray-600 rounded shadow outline-none hidden md:block mt-2" />
+                    <input type="text" name="search" id="search" placeholder='Search event...' className="w-3/4 px-4 py-1 pl-12 border-b-2 border-b-gray-600 rounded shadow outline-none hidden md:block mt-2" onChange={handleSearchChange} />
                 </div>
                 <div className='flex flex-col items-center gap-3'>
-                    {Array.isArray(events) && events.map((event) => (
+                    {Array.isArray(events) && events.filter((event => event.venueName.toLowerCase().includes(searchTerm.toLowerCase()))).map((event) => (
                         <div className='flex gap-2 items-center justify-evenly rounded-md border-2 border-gray-400 p-2 w-4/5' key={event.eventID}>
                             <div>
                                 <img src={venueImages[event.venueName]} alt="venue image" className=' w-80' />
@@ -87,7 +91,6 @@ const Home = () => {
                             </div>
                         </div>
                     ))}
-
                 </div>
             </div>
         </div>
