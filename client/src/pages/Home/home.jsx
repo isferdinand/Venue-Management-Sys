@@ -43,7 +43,7 @@ const Home = () => {
                     <input type="text" name="search" id="search" placeholder='Search event...' className="w-3/4 px-4 py-1 pl-12 border-b-2 border-b-gray-600 rounded shadow outline-none hidden md:block mt-2" />
                 </div>
                 <div className='flex flex-col items-center gap-3'>
-                    {events.map((event) => (
+                    {Array.isArray(events) && events.map((event) => (
                         <div className='flex gap-2 items-center justify-evenly rounded-md border-2 border-gray-400 p-2 w-4/5' key={event.eventID}>
                             <div>
                                 <img src={room1} alt="event" className=' w-80' />
@@ -60,6 +60,7 @@ const Home = () => {
                             </div>
                         </div>
                     ))}
+
                 </div>
             </div>
         </div>
