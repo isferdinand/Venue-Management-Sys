@@ -1,8 +1,9 @@
 import Sidebar from '../../components/Sidebar'
 import Navbar from '../../components/Navbar'
 import PropTypes from 'prop-types'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Axios from 'axios';
+import axios from 'axios';
 
 const AddEvent = () => {
     AddEvent.propTypes = {
@@ -12,28 +13,62 @@ const AddEvent = () => {
     const [sidebarToggle, setSidebarToggle] = useState(false)
     const [attendees, setAttendees] = useState(0)
     const [eventName, setEventName] = useState('')
+    const [selectedVenue, setSelectedVenue] = useState('')
     const [time, setTime] = useState('')
 
-    const assignVenue = (attendees) => {
-        let venue = '';
+    // const assignVenue = (attendees) => {
+    //     let venue = '';
 
-        if (attendees === 0) {
-            venue = '';
-        } else if (attendees >= 1 && attendees <= 50) {
-            venue = 'Room 1';
-        } else if (attendees >= 51 && attendees <= 200) {
-            venue = 'Room 2';
-        } else if (attendees >= 201 && attendees <= 500) {
-            venue = 'Room 3';
-        } else if (attendees >= 501 && attendees <= 1500) {
-            venue = 'Hall 1';
-        } else if (attendees >= 1501 && attendees <= 3000) {
-            venue = 'Hall 2';
-        } else if (attendees > 3000) {
-            venue = 'Hall 3';
+    //     if (attendees === 0) {
+    //         venue = '';
+    //     } else if (attendees >= 1 && attendees <= 50) {
+    //         venue = 'Room 1';
+    //     } else if (attendees >= 51 && attendees <= 200) {
+    //         venue = 'Room 2';
+    //     } else if (attendees >= 201 && attendees <= 500) {
+    //         venue = 'Room 3';
+    //     } else if (attendees >= 501 && attendees <= 1500) {
+    //         venue = 'Hall 1';
+    //     } else if (attendees >= 1501 && attendees <= 3000) {
+    //         venue = 'Hall 2';
+    //     } else if (attendees > 3000) {
+    //         venue = 'Hall 3';
+    //     }
+    //     return venue;
+    // }
+
+    useEffect(() => {
+        const fetchVenue = async () => {
+            const venueName = await assignVenue(attendees);
+            setSelectedVenue(venueName);
+        };
+
+        fetchVenue();
+    }, [attendees]);
+
+    const assignVenue = async (attendees) => {
+        try {
+            const response = await axios.get('http://localhost:3002/addevent');
+            const venues = response.data;
+            console.log(response.data);
+
+            // Sort venues by capacity in ascending order
+            venues.sort((a, b) => a.capacity - b.capacity);
+
+            // Find the first venue that can accommodate the attendees
+            const venue = venues.find(v => v.capacity >= attendees);
+
+            // If no venue is found and attendees are more than 5000, assign to Hall 3
+            if (!venue && attendees > 5000) {
+                return 'Hall 3';
+            }
+
+            return venue ? venue.venueName : '';
+        } catch (error) {
+            console.error('Error fetching venue capacities: ', error);
+            return '';
         }
-        return venue;
-    }
+    };
 
     const clearFormInputs = () => {
         setEventName('');
@@ -48,7 +83,7 @@ const AddEvent = () => {
             eventName: eventName,
             attendees: attendees,
             time: time,
-            venue: assignVenue(attendees)
+            venue: selectedVenue
         }).then((response) => {
             if (response.data.message === 'Venue not found!') {
                 alert('Event not added!')
@@ -113,7 +148,7 @@ const AddEvent = () => {
                                 type="text"
                                 name=""
                                 id="venue"
-                                value={assignVenue(attendees)}
+                                value={selectedVenue}
                                 readOnly
                             />
                         </div>

@@ -108,6 +108,20 @@ app.get('/venues', (req, res) => {
   });
 });
 
+// Get the venues capacity and name
+app.get('/addevent', (req, res) => {
+  const SQL = 'SELECT venueName, capacity FROM venues';
+
+  db.query(SQL, (err, result) => {
+    if (err) {
+      res.send({ err });
+    }
+    if (result && result.length > 0) {
+      res.send(result);
+    }
+  });
+});
+
 // Add a new event
 app.post('/addevent', (req, res) => {
   const sentEventName = req.body.eventName;
@@ -117,7 +131,7 @@ app.post('/addevent', (req, res) => {
   console.log(req.body);
   //get the venuesID from the venues table
   const getVenueIdSQL = 'SELECT venueID FROM venues WHERE venueName = ?';
-  db.query(getVenueIdSQL, sentVenue, (err, result) => {
+  db.query(getVenueIdSQL, [sentVenue], (err, result) => {
     if (err) {
       return res.send({ err });
     }
