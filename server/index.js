@@ -92,6 +92,22 @@ app.get('/home', (req, res) => {
   });
 });
 
+// Get all venues and their details
+app.get('/venues', (req, res) => {
+  const SQL = 'SELECT * FROM venues';
+
+  db.query(SQL, (err, result) => {
+    if (err) {
+      res.send({ err });
+    }
+    if (result.length > 0) {
+      res.send(result);
+    } else {
+      res.send({ message: 'No venues found!' });
+    }
+  });
+});
+
 // Add a new event
 app.post('/addevent', (req, res) => {
   const sentEventName = req.body.eventName;
